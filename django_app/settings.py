@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-a@#dk^3vu*x7!$xjw2vj35z@3*-q)y%9x@482i5n9@nodwf0tj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS",'localhost,127.0.0.1').split(",")
+ALLOWED_HOSTS = ['146.190.53.210','thewizard.online','localhost','127.0.0.1']
 
 
 # Application definition
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'django_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/projects/dj_test/templates/'],
+        'DIRS': ['/home/projects/django_project/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,19 +78,17 @@ WSGI_APPLICATION = 'django_app.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
-if DEVELOPMENT_MODE is True:
-    DATABASES = {
+DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        } 
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'thewizard',
+            'USER': 'thewiz',
+            'PASSWORD': '3559scoot',
+            'HOST': 'localhost',
+            'PORT': '',
+            }
     }
-elif len(sys.argv) > 0 and sys.argv[1] != "collectstatic":
-    if os.getenv("DATABASE_URL", None) is None:
-        raise Exception("DATABASE_URL environment variable not defined")
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
-    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
