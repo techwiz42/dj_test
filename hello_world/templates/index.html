@@ -3,6 +3,19 @@
 {% block page_content %}
 	<center>
 		<h1>I am the Wizard Online</h1>
-		<h3>Welcome to my castle...<h3>
 	</center>
+	{% if user.is_authenticated %}
+		<div class="alert alert-success" rolle="alert">
+			<h3 style="text-align: center;">elcome to my castle {{ user.username }} </h3>
+			<hr>
+			<br><a style="text-align: right;" href="{% url 'logout' %}">Logout</a></br>
+		
+		</div>
+	{% else %}
+		<div style="text-align: right;">
+			<a href="{% url 'login' %}">Login</a>&nbsp;
+			<a href="{% url 'home' %}">Home<a><br>
+		</div>
+	{% endif %}
+
 {% endblock %}
