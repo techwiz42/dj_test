@@ -1,7 +1,37 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 	<div class="main_content">
-		<h3> Here's some more stuff. Let's see where it ends up.</h3>
+		<div class="intro">
+			<ul>
+				<li>I have had a diverse, interesting exposure to many facets of technology, 
+			from computational biology to clinical medical informatics to nuclear 
+			security. 
+			<li>I will implement a few applications of some of these technologies
+			as a sampler on this website. 
+			<li>While site itself is implemented in 
+			<a href="https://www.djangoproject.com/" target="_blank">Django</a> on a 
+			<a href="https://www.postgresql.org/" target="_blank">PostgreSql</a> database, my experience
+			encompases other languages, frameworks and SQL as well as NoSQL databases.
+			<li>This site as well as several others is hosted on a 
+				<a href="https://www.digitalocean.com/products/droplets" target="_blank">
+					Digitalocean droplet</a> running the 
+				<a href="https://docs.nginx.com/nginx/admin-guide/web-server/" target="_blank">NGINX</a> web server
+			<li>This is a link to <a href="https://github.com/techwiz42/techwizard" target="_blank">the github repository for this site.</a> 
+			<li>This is a link to <a href="{% static 'users/resume.pdf' %}" target="_blank">my resume</a> and 
+			 <a href="https://www.linkedin.com/in/psisk/" target="_blank">my LinkedIn profile</a>
+			 <li>The site is NOT served over SSL - I'm too cheap to buy a certificate and self-signed certs scare people.
+
+		</div>
+		<p/>
+		<div class="comp_bio">
+		<div style="text-align: left;">
+			<a href="{% url 'str_cmp' %}">Here are some bioinformatics/computational biology applications</a>
+		</div>
+		<p/>
+		<div class="image_processing">
+			<a href="{% url 'proc_imgs' %}">Here are some image processing applications</a>
+		</div>
 	</div>
-{% endblock %}
+{% endblock content%}
