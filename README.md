@@ -1,4 +1,4 @@
-This repo contans a demo django project. When fully built-out, the project will include several django apps served by an NGINX server running on a single Virtual Private Server. 
+This repo contans a demo Django project. When fully built-out, the project will include several django apps served by an NGINX server running on a single Virtual Private Server along with several other Django and Flask projects. 
 
 **Features will include:**
 * SSL
@@ -13,3 +13,4 @@ This repo contans a demo django project. When fully built-out, the project will 
 * Local and global Sequence alignment 
 * Multiple alignment
 * Protein structure viewer using embedded JMOL
+* More...
